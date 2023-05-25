@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -25,20 +26,11 @@ class HomeController extends Controller
     // {
     //     return view('home');
     // }
-    public function clientHome()
-    {
-        return view('home',["msg"=>"Hello! I am client"]);
+    public function team(){
+        $trainers = DB::select("SELECT * from users where role = 1");
+        return view('team',compact('trainers'));
     }
-    public function trainerHome()
-    {
-        return view('home',["msg"=>"Hello! I am trainer"]);
-    }
-    public function receptionistHome()
-    {
-        return view('home',["msg"=>"Hello! I am receptionist"]);
-    }
-    public function adminHome()
-    {
-        return view('home',["msg"=>"Hello! I am admin"]);
-    }
+
+
+
 }

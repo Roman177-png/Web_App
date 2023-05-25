@@ -51,19 +51,19 @@ class LoginController extends Controller
         {
             if (auth()->user()->role == 'admin') 
             {
-              return redirect()->route('admin.home');
+              return redirect()->route('adminPanel.home');
             }
             else if (auth()->user()->role == 'trainer') 
             {
-              return redirect()->route('trainer.home');
+              return redirect()->route('trainerPanel.home');
             }
             else if (auth()->user()->role == 'receptionist') 
             {
-              return redirect()->route('receptionist.home');
+              return redirect()->route('receptionistPanel.home');
             }
             else
             {
-              return redirect()->route('home');
+              return redirect()->route('clientPanel.home');
             }
         }
         else

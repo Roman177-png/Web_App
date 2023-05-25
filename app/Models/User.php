@@ -22,9 +22,17 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
         'email',
         'password',
-        'role'
+        'gender',
+        'age',
+        'phone_number',
+        'role',
+        'image',
+        'experience',
+        'speciality',
+        'description'
     ];
 
     /**
@@ -50,5 +58,14 @@ class User extends Authenticatable
         return new Attribute(
             get: fn ($value) =>  ["client", "trainer", "receptionist" , "admin"][$value],
         );
+    }
+    public function userAvatar($request)
+    {
+        $image = $request->file('image');
+        $name = $image->getClientOriginalName();
+        //dd($name);
+        $destination = public_path('/images');
+        $image->move($destination, $name);
+        return $name;
     }
 }

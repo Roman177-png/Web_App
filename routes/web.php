@@ -16,27 +16,59 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::get("/team",[App\Http\Controllers\HomeController::class,'team'])->name('team');
+
 
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware(['auth','user-role:client'])->group(function()
 {
-    Route::get("/home",[App\Http\Controllers\HomeController::class, 'clientHome'])->name("home");
+    Route::prefix('/client')->group(function(){    
+        Route::get("/home",[App\Http\Controllers\ClientController::class,'clientHome'])->name('clientPanel.home');
+    });
+    
 });
 // Route Trainer
+Auth::routes();
+
 Route::middleware(['auth','user-role:trainer'])->group(function()
 {
-    Route::get("/trainer/home",[App\Http\Controllers\HomeController::class, 'trainerHome'])->name("trainer.home");
+    Route::prefix('/trainer')->group(function(){    
+        Route::get("/home",[App\Http\Controllers\TrainerController::class,'trainerHome'])->name('trainerPanel.home');
+
 });
+    
+});
+
 //Route Receptionist
-Route::middleware(['auth','user-role:receptionist'])->group(function()
-{
-    Route::get("/receptionist/home",[App\Http\Controllers\HomeController::class, 'receptionistHome'])->name("receptionist.home");
-});
-// Route Admin
-Route::middleware(['auth','user-role:admin'])->group(function()
-{
-    Route::get("/admin/home",[App\Http\Controllers\HomeController::class, 'adminHome'])->name("admin.home");
+Auth::routes();
+Route::middleware(['auth','user-role:receptionist'])->group(function(){
+    Route::prefix('/receptionist')->group(function(){
+        Route::get("/home",[App\Http\Controllers\ReceptionistController::class,'receptionistHome'])->name('receptionistPanel.home');
+
+        Route::get('/client-create', [App\Http\Controllers\ReceptionistController::class,'createClient'])->name('receptionistPanel.client_create');
+        Route::get('/trainer-create', [App\Http\Controllers\ReceptionistController::class,'create'])->name('receptionistPanel.create');
+        Route::resource('receptionists', App\Http\Controllers\ReceptionistController::class);
+
+    });
+});     
+//Route Admin
+Auth::routes();
+Route::middleware(['auth','user-role:admin'])->group(Function(){
+    Route::prefix('admin')->group(function(){   
+    Route::get("/home",[App\Http\Controllers\AdminController::class,'adminHome'])->name('adminPanel.home');
+    Route::get("/show-receptionists",[App\Http\Controllers\AdminController::class,'showReceptionists'])->name('adminPanel.showReceptionists');
+    Route::get("/show-trainer",[App\Http\Controllers\AdminController::class,'showTrainer'])->name('adminPanel.showTrainer');
+    Route::resource('trainer', App\Http\Controllers\AdminController::class);
+    Route::put("/update-client/{user}",[App\Http\Controllers\AdminController::class,'updateClient'])->name('adminPanel.updateClient');
+    });
 });
