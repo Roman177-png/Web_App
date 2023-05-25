@@ -26,7 +26,7 @@
     <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-6">
             <a href="{{ route('index') }}" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Main page</a>
-            <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center" onclick="window.location.href='#';">
+            <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center" onclick="window.location.href='{{ route('clientPanel.appointment_create') }}';">
                 <i class="fas fa-plus mr-3"></i> New appointment
             </button>
         </div>
@@ -39,7 +39,7 @@
                 <i class="fas fa-sticky-note mr-3"></i>
                 Chat
             </a>
-            <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="{{ route('clientPanel.myAppointment') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-table mr-3"></i>
                 My appointments
             </a>

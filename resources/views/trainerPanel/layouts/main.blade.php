@@ -37,14 +37,14 @@
                 <i class="fas fa-sticky-note mr-3"></i>
                 Messanger
             </a>
-            <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="{{ route('trainerPanel.show') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-table mr-3"></i>
                 My client
             </a>
-            <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            {{-- <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-calendar mr-3"></i>
                 Calendar
-            </a>
+            </a> --}}
         </nav>
     </aside>
 
@@ -95,10 +95,10 @@
                     <i class="fas fa-table mr-3"></i>
                     My client
                 </a>
-                <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                {{-- <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
                     <i class="fas fa-align-left mr-3"></i>
                     Calendar
-                </a>
+                </a> --}}
                 <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                               document.getElementById('logout-form').submit();" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">

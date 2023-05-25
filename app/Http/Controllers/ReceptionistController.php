@@ -33,4 +33,13 @@ class ReceptionistController extends Controller
 
         return redirect()->route('receptionistPanel.home')->with('message', 'Trainer added successfully');
     }
+    public function createAppointment(){
+        $trainers = DB::select('select * from users where role = 1');
+        $clients = DB::select('select * from users where role = 0');
+        return view('receptionistPanel.make-appointment', compact('trainers','clients'));
+    }
+    public function editApp(){
+        $bookings = DB::select('select * from bookings');
+        return view('receptionistPanel.edit-appoint',compact('bookings'));
+    }
 }
