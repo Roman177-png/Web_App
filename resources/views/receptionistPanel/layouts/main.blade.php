@@ -34,7 +34,7 @@
                 <i class="fas fa-tachometer-alt mr-3"></i>
                 My page
             </a>
-            <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="{{ route('receptionistPanel.messanger') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-sticky-note mr-3"></i>
                 Chat
             </a>
@@ -89,41 +89,25 @@
 
             <!-- Dropdown Nav -->
             <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
-                <a href="index.html" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
+                <a href="{{ route('receptionistPanel.home') }}" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
                     <i class="fas fa-tachometer-alt mr-3"></i>
-                    Dashboard
+                    My page
                 </a>
-                <a href="blank.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                <a href="{{ route('receptionistPanel.messanger') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                     <i class="fas fa-sticky-note mr-3"></i>
-                    Blank Page
+                    Chat
                 </a>
-                <a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                <a href="{{ route('receptionistPanel.create') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                     <i class="fas fa-table mr-3"></i>
-                    Tables
+                    Add trainer
                 </a>
-                <a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                <a href="{{ route('receptionistPanel.client_create') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                    <i class="fas fa-table mr-3"></i>
+                    Add client
+                </a>
+                <a href="{{ route('receptionistPanel.appointment_create') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                     <i class="fas fa-align-left mr-3"></i>
-                    Forms
-                </a>
-                <a href="tabs.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                    <i class="fas fa-tablet-alt mr-3"></i>
-                    Tabbed Content
-                </a>
-                <a href="calendar.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                    <i class="fas fa-calendar mr-3"></i>
-                    Calendar
-                </a>
-                <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                    <i class="fas fa-cogs mr-3"></i>
-                    Support
-                </a>
-                <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                    <i class="fas fa-user mr-3"></i>
-                    My Account
-                </a>
-                <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                    <i class="fas fa-sign-out-alt mr-3"></i>
-                    Sign Out
+                    Make appointment for client
                 </a>
             </nav>
         </header>

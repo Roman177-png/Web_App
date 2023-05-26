@@ -42,4 +42,8 @@ class ReceptionistController extends Controller
         $bookings = DB::select('select * from bookings');
         return view('receptionistPanel.edit-appoint',compact('bookings'));
     }
+    public function messanger(){
+        // return view('vendor.chatify.pages.app');
+        return redirect()->route('chatify');
+    }
 }

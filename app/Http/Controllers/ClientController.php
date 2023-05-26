@@ -65,4 +65,8 @@ class ClientController extends Controller
         
         return redirect()->route('clientPanel.myAppointment')->with('message', 'trainer ' . $appointment->id . ' information updated successfully');
     }
+    public function messanger(){
+        // return view('vendor.chatify.pages.app');
+        return redirect()->route('chatify');
+    }
 }

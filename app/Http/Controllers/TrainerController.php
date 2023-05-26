@@ -28,4 +28,8 @@ class TrainerController extends Controller
         $flattened = $data->flatten()->toArray();
         return view('trainerPanel.show', compact('appointments','flattened'));
     }
+    public function messanger(){
+        // return view('vendor.chatify.pages.app');
+        return redirect()->route('chatify');
+    }
 }

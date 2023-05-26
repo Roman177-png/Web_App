@@ -36,6 +36,7 @@ Route::middleware(['auth','user-role:client'])->group(function()
         Route::resource('appointments', App\Http\Controllers\ClientController::class);
   
         Route::get("/home",[App\Http\Controllers\ClientController::class,'clientHome'])->name('clientPanel.home');
+        Route::get("/messanger",[App\Http\Controllers\ClientController::class,'messanger'])->name('client-messanger');
         Route::get('/appointment-create', [App\Http\Controllers\ClientController::class,'createAppointment'])->name('clientPanel.appointment_create');
         Route::get('/myAppointments', [App\Http\Controllers\ClientController::class,'showAppointment'])->name('clientPanel.myAppointment');
     });
@@ -49,6 +50,7 @@ Route::middleware(['auth','user-role:trainer'])->group(function()
     Route::prefix('/trainer')->group(function(){    
         Route::get("/home",[App\Http\Controllers\TrainerController::class,'trainerHome'])->name('trainerPanel.home');
         Route::get('/show', [App\Http\Controllers\TrainerController::class,'index'])->name('trainerPanel.show');
+        Route::get('/messanger', [App\Http\Controllers\TrainerController::class,'messanger'])->name('trainerPanel.messanger');
 
 });
     
@@ -66,6 +68,8 @@ Route::middleware(['auth','user-role:receptionist'])->group(function(){
         Route::resource('receptionists', App\Http\Controllers\ReceptionistController::class);
         Route::get('/appointment-create', [App\Http\Controllers\ReceptionistController::class,'createAppointment'])->name('receptionistPanel.appointment_create');        
         Route::get("/edit-appointment",[App\Http\Controllers\ReceptionistController::class,'editApp'])->name('receptionistPanel.editApp'); 
+
+        Route::get('/messanger', [App\Http\Controllers\ReceptionistController::class,'messanger'])->name('receptionistPanel.messanger');
 
     });
 });     

@@ -35,7 +35,7 @@
                 <i class="fas fa-tachometer-alt mr-3"></i>
                 My page
             </a>
-            <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="{{ route('client-messanger') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-sticky-note mr-3"></i>
                 Chat
             </a>
@@ -82,37 +82,17 @@
 
             <!-- Dropdown Nav -->
             <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
-                <a href="index.html" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
+                <a href="{{ route('clientPanel.home') }}" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
                     <i class="fas fa-tachometer-alt mr-3"></i>
-                    Dashboard
+                    My page
                 </a>
-                <a href="blank.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                <a href="{{ route('client-messanger') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                     <i class="fas fa-sticky-note mr-3"></i>
-                    Blank Page
+                    Chat
                 </a>
-                <a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                <a href="{{ route('clientPanel.myAppointment') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                     <i class="fas fa-table mr-3"></i>
-                    Tables
-                </a>
-                <a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                    <i class="fas fa-align-left mr-3"></i>
-                    Forms
-                </a>
-                <a href="tabs.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                    <i class="fas fa-tablet-alt mr-3"></i>
-                    Tabbed Content
-                </a>
-                <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                    <i class="fas fa-cogs mr-3"></i>
-                    Support
-                </a>
-                <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                    <i class="fas fa-user mr-3"></i>
-                    My Account
-                </a>
-                <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                    <i class="fas fa-sign-out-alt mr-3"></i>
-                    Sign Out
+                    My appointments
                 </a>
             </nav>
         </header>
